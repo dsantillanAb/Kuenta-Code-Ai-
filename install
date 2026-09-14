@@ -340,15 +340,27 @@ download_and_install() {
         unzip -q "$tmp_dir/$filename" -d "$tmp_dir"
     fi
 
-    mv "$tmp_dir/kuenta-devs" "$INSTALL_DIR"
-    chmod 755 "${INSTALL_DIR}/kuenta-devs"
+    # The binary name inside the archive is `kuenta-devs` on Mac/Linux and
+    # `kuenta-devs.exe` on Windows. Move whichever we find.
+    if [ "$os" = "windows" ]; then
+        mv "$tmp_dir/kuenta-devs.exe" "$INSTALL_DIR/kuenta-devs.exe"
+        chmod 755 "$INSTALL_DIR/kuenta-devs.exe"
+    else
+        mv "$tmp_dir/kuenta-devs" "$INSTALL_DIR/kuenta-devs"
+        chmod 755 "$INSTALL_DIR/kuenta-devs"
+    fi
     rm -rf "$tmp_dir"
 }
 
 install_from_binary() {
     print_message info "\n${MUTED}Installing ${NC}kuenta-devs ${MUTED}from: ${NC}$binary_path"
-    cp "$binary_path" "${INSTALL_DIR}/kuenta-devs"
-    chmod 755 "${INSTALL_DIR}/kuenta-devs"
+    if [ "$os" = "windows" ]; then
+        cp "$binary_path" "$INSTALL_DIR/kuenta-devs.exe"
+        chmod 755 "$INSTALL_DIR/kuenta-devs.exe"
+    else
+        cp "$binary_path" "$INSTALL_DIR/kuenta-devs"
+        chmod 755 "$INSTALL_DIR/kuenta-devs"
+    fi
 }
 
 if [ -n "$binary_path" ]; then
@@ -459,8 +471,13 @@ fi
 
 # Run the first-run welcome screen if installed in an interactive terminal.
 # Skip in CI / non-TTY contexts.
-if [ -t 1 ] && [ -t 2 ] && [ -z "${CI:-}" ] && [ -z "${GITHUB_ACTIONS:-}" ] && command -v kuenta-devs >/dev/null 2>&1; then
-    "$INSTALL_DIR/kuenta-devs" welcome || true
+if [ -t 1 ] && [ -t 2 ] && [ -z "${CI:-}" ] && [ -z "${GITHUB_ACTIONS:-}" ]; then
+    # Pick the right binary name for this OS
+    if [ "$os" = "windows" ] && [ -x "$INSTALL_DIR/kuenta-devs.exe" ]; then
+        "$INSTALL_DIR/kuenta-devs.exe" welcome || true
+    elif [ -x "$INSTALL_DIR/kuenta-devs" ]; then
+        "$INSTALL_DIR/kuenta-devs" welcome || true
+    fi
 fi
 
 echo -e "${GREEN}█▀▀▄ █▀▀▄ █▀▀▄ █▀█${NC}
@@ -472,7 +489,7 @@ echo -e ""
 echo -e "${MUTED}Kuenta Devs CLI is ready, to start:${NC}"
 echo -e ""
 echo -e "cd <project>      ${MUTED}# Open directory${NC}"
-echo -e "kuenta-devs       ${MUTED}# Run the CLI${NC}"
+echo -e "kuenta-devs       ${MUTED}# Run the CLI (or kuenta-devs.exe on Windows)${NC}"
 echo -e ""
 echo -e "${MUTED}For more information visit ${NC}https://kuenta.dev/docs"
 echo -e ""
