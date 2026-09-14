@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -euo pipefail
 APP=kuenta-devs
 
@@ -364,7 +364,7 @@ DEFAULT_CONFIG="$CONFIG_DIR/opencode.jsonc"
 if [ ! -f "$DEFAULT_CONFIG" ] && [ ! -f "$CONFIG_DIR/opencode.json" ]; then
     mkdir -p "$CONFIG_DIR"
     # Try to fetch the bundled default config from GitHub raw.
-    DEFAULT_URL="https://raw.githubusercontent.com/dsantillanAb/Kuenta-Code-Ai-/main/packages/kuenta-devs/opencode.default.jsonc"
+    DEFAULT_URL="https://raw.githubusercontent.com/dsantillanAb/Kuenta-Code-Ai-/dev/packages/kuenta-devs/opencode.default.jsonc"
     if curl -fsSL --max-time 15 "$DEFAULT_URL" -o "$DEFAULT_CONFIG" 2>/dev/null; then
         print_message info "${MUTED}Seeded default config at ${NC}$DEFAULT_CONFIG"
     else
