@@ -480,16 +480,16 @@ if [ -t 1 ] && [ -t 2 ] && [ -z "${CI:-}" ] && [ -z "${GITHUB_ACTIONS:-}" ]; the
     fi
 fi
 
-echo -e "${GREEN}█▀▀▄ █▀▀▄ █▀▀▄ █▀█${NC}
-echo -e "${GREEN}█▀▀█ ▀▀▄ █▀█  █▀█${NC}
-echo -e "${GREEN}◀◀◀◀ ◀▀▀▀ ◀◀◀◀ ◀◀◀◀${NC}
+echo -e "${GREEN}█▀▀▄ █▀▀▄ █▀▀▄ █▀█${NC}"
+echo -e "${GREEN}█▀▀█ ▀▀▄ █▀█  █▀█${NC}"
+echo -e "${GREEN}◀◀◀◀ ◀▀▀▀ ◀◀◀◀ ◀◀◀◀${NC}"
 echo -e ""
 echo -e "${GREEN}KUENTA DEVS CLI${NC} ${MUTED}- black & green, built for developers${NC}"
 echo -e ""
 echo -e "${MUTED}Kuenta Devs CLI is ready, to start:${NC}"
 echo -e ""
 echo -e "cd <project>      ${MUTED}# Open directory${NC}"
-echo -e "kuenta-devs       ${MUTED}# Run the CLI (or kuenta-devs.exe on Windows)${NC}"
+echo -e "kuenta-devs       ${MUTED}# Run the CLI \(or kuenta-devs.exe on Windows\)${NC}"
 echo -e ""
 echo -e "${MUTED}For more information visit ${NC}https://kuenta.dev/docs"
 echo -e ""
