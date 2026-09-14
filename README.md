@@ -29,10 +29,12 @@
 # One-line installer (recommended)
 curl -fsSL https://raw.githubusercontent.com/dsantillanAb/Kuenta-Code-Ai-/dev/install | bash
 
-# Or from npm / bun
-npm i -g kuenta-devs@latest
+# Or with bun (after install)
 bun i -g kuenta-devs@latest
 ```
+
+> [!NOTE]
+> Kuenta Devs CLI is not yet on npm. Use the curl install above.
 
 After install, run `kuenta-devs` to launch the TUI. The first-run welcome screen will greet you.
 
