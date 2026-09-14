@@ -464,6 +464,28 @@ if [[ "$no_modify_path" != "true" ]]; then
     fi
 fi
 
+# On Windows: also add the install dir to the system PATH so PowerShell,
+# cmd.exe, and Windows Terminal can find `kuenta-devs.exe` after install.
+if [ "$os" = "windows" ] && [ -z "${no_modify_path:-}" ]; then
+    powershell_path="C:\Users\${USERPROFILE##*\\}\.kuenta-devs\bin"
+    # Use PowerShell to update the user PATH persistently (no admin needed).
+    if powershell.exe -NoProfile -Command "
+        $bin = Join-Path $env:USERPROFILE '.kuenta-devs\bin'
+        $current = [Environment]::GetEnvironmentVariable('Path', 'User')
+        $paths = $current -split ';' | Where-Object { $_ -and $_ -ne $bin }
+        $paths += $bin
+        [Environment]::SetEnvironmentVariable('Path', ($paths -join ';'), 'User')
+        Write-Host 'kuenta-devs added to PATH. Restart your terminal to use it.'
+    " > /dev/null 2>&1; then
+        print_message info "${GREEN}Added kuenta-devs to your user PATH.${NC} Restart your terminal to use it."
+    else
+        print_message warning "Could not update PATH automatically. Add manually:"
+        print_message info "  $powershell_path"
+    fi
+        esac
+    fi
+fi
+
 if [ -n "${GITHUB_ACTIONS-}" ] && [ "${GITHUB_ACTIONS}" == "true" ]; then
     echo "$INSTALL_DIR" >> $GITHUB_PATH
     print_message info "Added $INSTALL_DIR to \$GITHUB_PATH"
