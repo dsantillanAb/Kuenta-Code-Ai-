@@ -1,4 +1,4 @@
-import type { ProviderAuthMethod } from "@opencode-ai/sdk/v2/client"
+import type { ProviderAuthMethod } from "@kuenta-devs/sdk/v2/client"
 
 const data = {
   provider: {

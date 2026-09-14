@@ -1,35 +1,35 @@
 import { expect, test } from "bun:test"
 import { Schema } from "effect"
-import { AgentV2 } from "@opencode-ai/core/agent"
-import { ModelV2 } from "@opencode-ai/core/model"
-import { SessionV2 } from "@opencode-ai/core/session"
-import { Agent } from "@opencode-ai/schema/agent"
-import { Location } from "@opencode-ai/schema/location"
-import { Model } from "@opencode-ai/schema/model"
-import { AgentAttachment, FileAttachment, Prompt, Source } from "@opencode-ai/schema/prompt"
-import { Provider } from "@opencode-ai/schema/provider"
-import { Project } from "@opencode-ai/schema/project"
-import { ProjectDirectories } from "@opencode-ai/schema/project-directories"
-import { PermissionV1 } from "@opencode-ai/schema/permission-v1"
-import { Session } from "@opencode-ai/schema/session"
-import { SessionInput } from "@opencode-ai/schema/session-input"
-import { SessionMessage } from "@opencode-ai/schema/session-message"
-import { Workspace } from "@opencode-ai/schema/workspace"
-import { Command } from "@opencode-ai/schema/command"
-import { Connection } from "@opencode-ai/schema/connection"
-import { Credential } from "@opencode-ai/schema/credential"
-import { FileSystem } from "@opencode-ai/schema/filesystem"
-import { Integration } from "@opencode-ai/schema/integration"
-import { LLM } from "@opencode-ai/schema/llm"
-import { Permission } from "@opencode-ai/schema/permission"
-import { Plugin } from "@opencode-ai/schema/plugin"
-import { Pty } from "@opencode-ai/schema/pty"
-import { Reference } from "@opencode-ai/schema/reference"
-import { SessionTodo } from "@opencode-ai/schema/session-todo"
-import { Skill } from "@opencode-ai/schema/skill"
-import { AbsolutePath, DateTimeUtcFromMillis, optional, statics } from "@opencode-ai/schema/schema"
-import { ProviderV2 } from "@opencode-ai/core/provider"
-import { PluginV2 } from "@opencode-ai/core/plugin"
+import { AgentV2 } from "@kuenta-devs/core/agent"
+import { ModelV2 } from "@kuenta-devs/core/model"
+import { SessionV2 } from "@kuenta-devs/core/session"
+import { Agent } from "@kuenta-devs/schema/agent"
+import { Location } from "@kuenta-devs/schema/location"
+import { Model } from "@kuenta-devs/schema/model"
+import { AgentAttachment, FileAttachment, Prompt, Source } from "@kuenta-devs/schema/prompt"
+import { Provider } from "@kuenta-devs/schema/provider"
+import { Project } from "@kuenta-devs/schema/project"
+import { ProjectDirectories } from "@kuenta-devs/schema/project-directories"
+import { PermissionV1 } from "@kuenta-devs/schema/permission-v1"
+import { Session } from "@kuenta-devs/schema/session"
+import { SessionInput } from "@kuenta-devs/schema/session-input"
+import { SessionMessage } from "@kuenta-devs/schema/session-message"
+import { Workspace } from "@kuenta-devs/schema/workspace"
+import { Command } from "@kuenta-devs/schema/command"
+import { Connection } from "@kuenta-devs/schema/connection"
+import { Credential } from "@kuenta-devs/schema/credential"
+import { FileSystem } from "@kuenta-devs/schema/filesystem"
+import { Integration } from "@kuenta-devs/schema/integration"
+import { LLM } from "@kuenta-devs/schema/llm"
+import { Permission } from "@kuenta-devs/schema/permission"
+import { Plugin } from "@kuenta-devs/schema/plugin"
+import { Pty } from "@kuenta-devs/schema/pty"
+import { Reference } from "@kuenta-devs/schema/reference"
+import { SessionTodo } from "@kuenta-devs/schema/session-todo"
+import { Skill } from "@kuenta-devs/schema/skill"
+import { AbsolutePath, DateTimeUtcFromMillis, optional, statics } from "@kuenta-devs/schema/schema"
+import { ProviderV2 } from "@kuenta-devs/core/provider"
+import { PluginV2 } from "@kuenta-devs/core/plugin"
 
 test("Core reuses the canonical shared schemas", async () => {
   const [
@@ -55,27 +55,27 @@ test("Core reuses the canonical shared schemas", async () => {
     coreSchema,
     coreWorkspace,
   ] = await Promise.all([
-    import("@opencode-ai/core/command"),
-    import("@opencode-ai/core/integration/connection"),
-    import("@opencode-ai/core/credential"),
-    import("@opencode-ai/core/filesystem"),
-    import("@opencode-ai/core/integration"),
-    import("@opencode-ai/core/location"),
-    import("@opencode-ai/llm"),
-    import("@opencode-ai/core/permission"),
-    import("@opencode-ai/core/v1/permission"),
-    import("@opencode-ai/core/project/copy"),
-    import("@opencode-ai/core/pty"),
-    import("@opencode-ai/core/project/schema"),
-    import("@opencode-ai/core/reference"),
-    import("@opencode-ai/core/session/input"),
-    import("@opencode-ai/core/session/message"),
-    import("@opencode-ai/core/session/todo"),
-    import("@opencode-ai/core/session/prompt"),
-    import("@opencode-ai/core/skill"),
-    import("@opencode-ai/core/v2-schema"),
-    import("@opencode-ai/core/schema"),
-    import("@opencode-ai/core/workspace"),
+    import("@kuenta-devs/core/command"),
+    import("@kuenta-devs/core/integration/connection"),
+    import("@kuenta-devs/core/credential"),
+    import("@kuenta-devs/core/filesystem"),
+    import("@kuenta-devs/core/integration"),
+    import("@kuenta-devs/core/location"),
+    import("@kuenta-devs/llm"),
+    import("@kuenta-devs/core/permission"),
+    import("@kuenta-devs/core/v1/permission"),
+    import("@kuenta-devs/core/project/copy"),
+    import("@kuenta-devs/core/pty"),
+    import("@kuenta-devs/core/project/schema"),
+    import("@kuenta-devs/core/reference"),
+    import("@kuenta-devs/core/session/input"),
+    import("@kuenta-devs/core/session/message"),
+    import("@kuenta-devs/core/session/todo"),
+    import("@kuenta-devs/core/session/prompt"),
+    import("@kuenta-devs/core/skill"),
+    import("@kuenta-devs/core/v2-schema"),
+    import("@kuenta-devs/core/schema"),
+    import("@kuenta-devs/core/workspace"),
   ])
 
   const schemas = [

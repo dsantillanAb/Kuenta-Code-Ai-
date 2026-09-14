@@ -1,0 +1,37 @@
+{
+  // Kuenta Devs CLI — project-level config
+  // When you run `kuenta-devs` from inside this repo, this config is loaded.
+  // For global config, see packages/kuenta-devs/opencode.default.jsonc which is
+  // copied to ~/.config/opencode/opencode.jsonc by the install script.
+  //
+  // SECURITY WARNING: The apiKey below is in plaintext. Prefer the env-var form:
+  //   "apiKey": "{env:KUENTA_DEVS_API_KEY}"
+  // and set KUENTA_DEVS_API_KEY in your shell profile.
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "kuentadevs": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://ai.dploy.lol/v1",
+        "apiKey": "sk-ca4d3d8ab26ebcbc-7u6b4z-3f836f1a"
+      },
+      "models": {
+        "provider/model-id": {
+          "name": "provider/model-id",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
+    }
+  },
+  "model": "kuentadevs/provider/model-id",
+  "agent": {
+    "explorer": {
+      "description": "Fast explorer subagent for codebase exploration",
+      "mode": "subagent",
+      "model": "kuentadevs/provider/model-id"
+    }
+  }
+}

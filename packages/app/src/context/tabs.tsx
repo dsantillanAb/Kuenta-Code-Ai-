@@ -1,5 +1,5 @@
-import type { Session } from "@opencode-ai/sdk/v2/client"
-import { createSimpleContext } from "@opencode-ai/ui/context"
+import type { Session } from "@kuenta-devs/sdk/v2/client"
+import { createSimpleContext } from "@kuenta-devs/ui/context"
 import { createStore, produce } from "solid-js/store"
 import { Persist, persisted, removePersisted, draftPersistedKeys } from "@/utils/persist"
 import { ServerConnection, useServer } from "./server"

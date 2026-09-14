@@ -1,10 +1,10 @@
 import { describe, expect } from "bun:test"
 import { Effect, Layer } from "effect"
-import { AppNodeBuilder } from "@opencode-ai/core/effect/app-node-builder"
-import { Location } from "@opencode-ai/core/location"
-import { Project } from "@opencode-ai/core/project"
-import { AbsolutePath } from "@opencode-ai/core/schema"
-import { WorkspaceV2 } from "@opencode-ai/core/workspace"
+import { AppNodeBuilder } from "@kuenta-devs/core/effect/app-node-builder"
+import { Location } from "@kuenta-devs/core/location"
+import { Project } from "@kuenta-devs/core/project"
+import { AbsolutePath } from "@kuenta-devs/core/schema"
+import { WorkspaceV2 } from "@kuenta-devs/core/workspace"
 import { testEffect } from "./lib/effect"
 
 const workspaceID = WorkspaceV2.ID.make("wrk_test")

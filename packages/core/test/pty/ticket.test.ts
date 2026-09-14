@@ -1,9 +1,9 @@
 import { describe, expect } from "bun:test"
 import { Effect, Layer } from "effect"
-import { LayerNode } from "@opencode-ai/core/effect/layer-node"
-import { PtyID } from "@opencode-ai/core/pty/schema"
-import { PtyTicket } from "@opencode-ai/core/pty/ticket"
-import { WorkspaceV2 } from "@opencode-ai/core/workspace"
+import { LayerNode } from "@kuenta-devs/core/effect/layer-node"
+import { PtyID } from "@kuenta-devs/core/pty/schema"
+import { PtyTicket } from "@kuenta-devs/core/pty/ticket"
+import { WorkspaceV2 } from "@kuenta-devs/core/workspace"
 import { testEffect } from "../lib/effect"
 
 const it = testEffect(LayerNode.compile(PtyTicket.node))

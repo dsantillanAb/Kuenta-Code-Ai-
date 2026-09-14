@@ -1,8 +1,8 @@
-import { Catalog } from "@opencode-ai/core/catalog"
+import { Catalog } from "@kuenta-devs/core/catalog"
 import { Effect } from "effect"
 import { HttpApiBuilder } from "effect/unstable/httpapi"
 import { Api } from "../api"
-import { ProviderNotFoundError } from "@opencode-ai/protocol/errors"
+import { ProviderNotFoundError } from "@kuenta-devs/protocol/errors"
 import { response } from "../location"
 
 export const ProviderHandler = HttpApiBuilder.group(Api, "server.provider", (handlers) =>

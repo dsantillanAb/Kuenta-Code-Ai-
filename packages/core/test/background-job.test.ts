@@ -1,6 +1,6 @@
 import { describe, expect } from "bun:test"
-import { BackgroundJob } from "@opencode-ai/core/background-job"
-import { LayerNode } from "@opencode-ai/core/effect/layer-node"
+import { BackgroundJob } from "@kuenta-devs/core/background-job"
+import { LayerNode } from "@kuenta-devs/core/effect/layer-node"
 import { Deferred, Effect, Exit, Scope } from "effect"
 import { it } from "./lib/effect"
 

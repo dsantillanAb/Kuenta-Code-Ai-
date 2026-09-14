@@ -1,4 +1,4 @@
-# @opencode-ai/slack
+# @kuenta-devs/slack
 
 Slack bot integration for opencode that creates threaded conversations.
 

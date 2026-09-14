@@ -1,9 +1,9 @@
 import { describe, expect } from "bun:test"
 import { Effect, Layer } from "effect"
-import { AppNodeBuilder } from "@opencode-ai/core/effect/app-node-builder"
-import { Location } from "@opencode-ai/core/location"
-import { Policy } from "@opencode-ai/core/policy"
-import { AbsolutePath } from "@opencode-ai/core/schema"
+import { AppNodeBuilder } from "@kuenta-devs/core/effect/app-node-builder"
+import { Location } from "@kuenta-devs/core/location"
+import { Policy } from "@kuenta-devs/core/policy"
+import { AbsolutePath } from "@kuenta-devs/core/schema"
 import { location } from "./fixture/location"
 import { testEffect } from "./lib/effect"
 

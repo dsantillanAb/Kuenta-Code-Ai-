@@ -1,4 +1,4 @@
-import type { CommandV2Info } from "@opencode-ai/sdk/v2/types"
+import type { CommandV2Info } from "@kuenta-devs/sdk/v2/types"
 import type { Hooks } from "./registration.js"
 
 export interface CommandDraft {

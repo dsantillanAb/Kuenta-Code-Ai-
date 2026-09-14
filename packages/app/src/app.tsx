@@ -1,12 +1,12 @@
 import "@/index.css"
 import * as Sentry from "@sentry/solid"
-import { I18nProvider } from "@opencode-ai/ui/context"
-import { DialogProvider } from "@opencode-ai/ui/context/dialog"
-import { FileComponentProvider } from "@opencode-ai/ui/context/file"
-import { File } from "@opencode-ai/session-ui/file"
-import { Font } from "@opencode-ai/ui/font"
-import { Splash } from "@opencode-ai/ui/logo"
-import { ThemeProvider } from "@opencode-ai/ui/theme/context"
+import { I18nProvider } from "@kuenta-devs/ui/context"
+import { DialogProvider } from "@kuenta-devs/ui/context/dialog"
+import { FileComponentProvider } from "@kuenta-devs/ui/context/file"
+import { File } from "@kuenta-devs/session-ui/file"
+import { Font } from "@kuenta-devs/ui/font"
+import { Splash } from "@kuenta-devs/ui/logo"
+import { ThemeProvider } from "@kuenta-devs/ui/theme/context"
 import { MetaProvider } from "@solidjs/meta"
 import {
   type BaseRouterProps,
@@ -20,7 +20,7 @@ import {
 } from "@solidjs/router"
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query"
 import { Effect } from "effect"
-import { base64Encode } from "@opencode-ai/core/util/encode"
+import { base64Encode } from "@kuenta-devs/core/util/encode"
 import {
   type Component,
   createEffect,

@@ -1,4 +1,4 @@
-import type { TuiPlugin, TuiPluginApi } from "@opencode-ai/plugin/tui"
+import type { TuiPlugin, TuiPluginApi } from "@kuenta-devs/plugin/tui"
 import type { BuiltinTuiPlugin } from "../builtins"
 import { createMemo, For, Show, createSignal } from "solid-js"
 
@@ -16,7 +16,7 @@ function View(props: { api: TuiPluginApi }) {
         <Show when={list().length > 2}>
           <text fg={theme().text}>{open() ? "▼" : "▶"}</text>
         </Show>
-        <text fg={theme().text}>
+        <text fg={theme().primary}>
           <b>LSP</b>
         </text>
       </box>

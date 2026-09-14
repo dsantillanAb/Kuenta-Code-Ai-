@@ -1,4 +1,4 @@
-import type { FileSystemEntry } from "@opencode-ai/sdk/v2/types"
+import type { FileSystemEntry } from "@kuenta-devs/sdk/v2/types"
 import type { Effect } from "effect"
 
 export interface FileSystem {

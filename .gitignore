@@ -18,6 +18,12 @@ ts-dist
 **/.omo
 .omo/
 /result
+
+# Kuenta Devs — files con API keys hardcoded
+packages/kuenta-devs/opencode.local.jsonc
+packages/kuenta-devs/opencode.local.json
+.tmp_*.py
+.tmp_*.*
 refs
 Session.vim
 /opencode.json
@@ -32,3 +38,10 @@ UPCOMING_CHANGELOG.md
 logs/
 *.bun-build
 tsconfig.tsbuildinfo
+
+# Kuenta Devs temp files
+build_output.log
+install.lf.tmp
+test_logo.mjs
+.tmp_*.*
+
