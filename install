@@ -457,7 +457,12 @@ if [ -n "${GITHUB_ACTIONS-}" ] && [ "${GITHUB_ACTIONS}" == "true" ]; then
     print_message info "Added $INSTALL_DIR to \$GITHUB_PATH"
 fi
 
-echo -e ""
+# Run the first-run welcome screen if installed in an interactive terminal.
+# Skip in CI / non-TTY contexts.
+if [ -t 1 ] && [ -t 2 ] && [ -z "${CI:-}" ] && [ -z "${GITHUB_ACTIONS:-}" ] && command -v kuenta-devs >/dev/null 2>&1; then
+    "$INSTALL_DIR/kuenta-devs" welcome || true
+fi
+
 echo -e "${GREEN}█▀▀▄ █▀▀▄ █▀▀▄ █▀█${NC}
 echo -e "${GREEN}█▀▀█ ▀▀▄ █▀█  █▀█${NC}
 echo -e "${GREEN}◀◀◀◀ ◀▀▀▀ ◀◀◀◀ ◀◀◀◀${NC}

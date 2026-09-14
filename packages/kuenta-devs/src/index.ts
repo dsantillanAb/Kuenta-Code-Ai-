@@ -7,6 +7,7 @@ import { ProvidersCommand } from "./cli/cmd/providers"
 import { AgentCommand } from "./cli/cmd/agent"
 import { UpgradeCommand } from "./cli/cmd/upgrade"
 import { UninstallCommand } from "./cli/cmd/uninstall"
+import { WelcomeCommand } from "./cli/cmd/welcome"
 import { ModelsCommand } from "./cli/cmd/models"
 import { UI } from "./cli/ui"
 import { InstallationVersion } from "@kuenta-devs/core/installation/version"
@@ -90,6 +91,7 @@ const cli = yargs(args)
   .command(AgentCommand)
   .command(UpgradeCommand)
   .command(UninstallCommand)
+  .command(WelcomeCommand)
   .command(ServeCommand)
   .command(WebCommand)
   .command(ModelsCommand)
